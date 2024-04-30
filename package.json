@@ -1,0 +1,27 @@
+{
+  "name": "esp-dev-container",
+  "version": "0.0.1",
+  "description": "ESP container for development",
+  "bin": {
+    "esp-dev-container": "bin.js"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/like/esp-dev-container.git"
+  },
+  "author": "1337",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/like/esp-dev-container/issues"
+  },
+  "homepage": "https://github.com/like/esp-dev-container#readme",
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
+}
