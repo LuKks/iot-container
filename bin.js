@@ -16,7 +16,7 @@ try {
 
   exec('docker', [
     'run',
-    '--rm',
+    argv.persistent ? null : '--rm',
     '-ti',
     '-v=' + process.cwd() + ':/mnt/cwd',
     argv.home ? ('-v=' + os.homedir() + ':/mnt/home') : null,

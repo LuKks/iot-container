@@ -9,7 +9,7 @@ npm i -g esp-dev-container
 ## Usage
 
 ```sh
-esp-dev-container [--sudo] [--device <path>]
+esp-dev-container [--sudo] [--device <path>] [--persistent]
 ```
 
 ## Notes
