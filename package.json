@@ -1,6 +1,6 @@
 {
   "name": "esp-dev-container",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ESP container for development",
   "bin": {
     "esp-dev-container": "bin.js"
