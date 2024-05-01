@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 
 const os = require('os')
-const path = require('path')
 const { execFileSync } = require('child_process')
 const minimist = require('minimist')
 
 const argv = minimist(process.argv.slice(2))
+const tag = 'esp-dev-container:local'
 
 try {
-  const imageId = exec('docker', [
-    'build',
-    argv.verbose ? null : '-q',
-    path.join(__dirname)
-  ]).toString().trim()
+  const once = !exec('docker', ['images', tag, '-q', '--no-trunc']).length
+
+  if (once) {
+    exec('docker', ['build', '--progress=plain', '--tag=' + tag, __dirname], { stdio: 'inherit' })
+  }
+
+  const imageId = exec('docker', ['build', '--tag=' + tag, '-q', __dirname]).toString().trim()
 
   exec('docker', [
     'run',

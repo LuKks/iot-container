@@ -10,14 +10,20 @@ RUN apt-get update && apt-get install -y \
     python3.12-venv \
     libhidapi-libusb0
 
-WORKDIR /root/esp
+WORKDIR /root
 
-RUN git clone --recursive https://github.com/espressif/esp-idf.git
+RUN git clone -b v5.2.1 --recursive https://github.com/espressif/esp-idf.git
 
-WORKDIR /root/esp/esp-idf
+WORKDIR /root/esp-idf
 
 RUN ./install.sh
-RUN echo "source /root/esp/esp-idf/export.sh" >> ~/.bashrc
+
+# Precomputing saves ~1 second when spawning the shell
+# RUN echo "source /root/esp-idf/export.sh" >> ~/.bashrc
+
+COPY ./env-precompute.sh /tmp/env-precompute.sh
+RUN chmod +x /tmp/env-precompute.sh && \
+    /tmp/env-precompute.sh
 
 WORKDIR /mnt/cwd
 
