@@ -1,7 +1,7 @@
 #!/bin/bash
 
 env > /tmp/env-pre
-source export.sh
+source /root/esp-idf/export.sh
 env > /tmp/env-post
 
 echo -e "\n# ESP-IDF" >> ~/.bashrc

@@ -3,12 +3,14 @@ FROM ubuntu:noble
 ENV DEBIAN_FRONTEND=noninteractive
 ENV IDF_EXPORT_QUIET=true
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    make \
     cmake \
     nano \
     python3.12-venv \
-    libhidapi-libusb0
+    libhidapi-libusb0 && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
 
@@ -23,7 +25,8 @@ RUN ./install.sh
 
 COPY ./env-precompute.sh /tmp/env-precompute.sh
 RUN chmod +x /tmp/env-precompute.sh && \
-    /tmp/env-precompute.sh
+    /tmp/env-precompute.sh && \
+    rm /tmp/env-precompute.sh
 
 WORKDIR /mnt/cwd
 
