@@ -12,6 +12,8 @@ npm i -g esp-dev-container
 esp-dev-container [--sudo] [--device <path>] [--persistent]
 ```
 
+## Example
+
 ```sh
 esp-dev-container # This does cd into current working directory
 
@@ -41,7 +43,7 @@ idf.py -p /dev/ttyUSB0 -b 921600 flash
 idf.py -p /dev/ttyUSB0 monitor # CTRL-] to exit
 ```
 
-## Notes
+## USB permission
 
 For rootless, the permanent way is to only allow the logged-in user via ACL:
 
@@ -60,6 +62,12 @@ sudo chmod 666 /dev/ttyUSB0
 ```
 
 Otherwise, use `--sudo`.
+
+## Notes
+
+```sh
+espsecure.py generate_signing_key --version 2 --scheme ecdsa256 secure_boot_signing_key.pem
+```
 
 ## License
 
