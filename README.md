@@ -12,6 +12,35 @@ npm i -g esp-dev-container
 esp-dev-container [--sudo] [--device <path>] [--persistent]
 ```
 
+```sh
+esp-dev-container # This does cd into current working directory
+
+idf.py create-project my_project
+cd my_project
+
+cat <<EOF > main/my_project.c
+#include <stdio.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
+void app_main () {
+  while (1) {
+    printf("hello from module\n");
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
+EOF
+
+# Optional configs
+# idf.py menuconfig
+
+idf.py build
+
+idf.py -p /dev/ttyUSB0 -b 921600 flash
+
+idf.py -p /dev/ttyUSB0 monitor # CTRL-] to exit
+```
+
 ## Notes
 
 For rootless, the permanent way is to only allow the logged-in user via ACL:
