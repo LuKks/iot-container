@@ -2,6 +2,11 @@
   "name": "esp-container",
   "version": "0.0.7",
   "description": "Espressif IDF container",
+  "files": [
+    "bin.js",
+    "Dockerfile",
+    "env-precompute.sh"
+  ],
   "bin": {
     "esp-container": "bin.js"
   },
