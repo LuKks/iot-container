@@ -1,21 +1,21 @@
-# esp-dev-container
+# esp-container
 
-ESP container for development
+Espressif IDF container
 
 ```
-npm i -g esp-dev-container
+npm i -g esp-container
 ```
 
 ## Usage
 
 ```sh
-esp-dev-container [--sudo] [--device <path>] [--persistent]
+esp-container [--sudo] [--device <path>] [--persistent]
 ```
 
 ## Example
 
 ```sh
-esp-dev-container # This does cd into current working directory
+esp-container # This does cd into current working directory
 
 idf.py create-project my_project
 cd my_project
