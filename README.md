@@ -15,7 +15,8 @@ esp-container [--sudo] [--device <path>] [--persistent]
 ## Example
 
 ```sh
-esp-container # This does cd into current working directory
+# This does cd into current working directory
+esp-container --device /dev/ttyUSB0
 
 idf.py create-project my_project
 cd my_project
