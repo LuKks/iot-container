@@ -59,7 +59,7 @@ sudo udevadm trigger
 A temporal solution is to change the USB permission:
 
 ```sh
-sudo chmod 666 /dev/ttyUSB0
+sudo chmod 660 /dev/ttyUSB0
 ```
 
 Otherwise, use `--sudo`.
