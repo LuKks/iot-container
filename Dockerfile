@@ -28,6 +28,16 @@ RUN chmod +x /tmp/env-precompute.sh && \
     /tmp/env-precompute.sh && \
     rm /tmp/env-precompute.sh
 
+WORKDIR /root
+
+RUN apt-get update && apt-get install -y \
+    curl && \
+    curl -sL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN npm i -g iot-dev
+
 WORKDIR /mnt/cwd
 
 ENTRYPOINT ["/bin/bash"]
