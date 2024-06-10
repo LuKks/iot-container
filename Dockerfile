@@ -17,12 +17,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /root
 
-RUN git clone -b v${ESP_IDF_VERSION} --recursive https://github.com/espressif/esp-idf.git
-RUN git clone -b ${ESP_ARD_VERSION} --depth=1 https://github.com/espressif/arduino-esp32.git
+RUN git clone -b v${ESP_IDF_VERSION} --depth=1 https://github.com/espressif/esp-idf.git && \
+    cd esp-idf && \
+    git submodule update --init --recursive --depth=1 && \
+    rm -rf .git
+
+WORKDIR /root
+
+RUN git clone -b ${ESP_ARD_VERSION} --depth=1 --recursive https://github.com/espressif/arduino-esp32.git && \
+    cd arduino-esp32 && \
+    git submodule update --init --recursive --depth=1 && \
+    rm -rf .git
 
 WORKDIR /root/esp-idf
 
-RUN ./install.sh
+RUN ./install.sh esp32
 
 # Precomputing saves ~1 second when spawning the shell
 # RUN echo "source /root/esp-idf/export.sh" >> ~/.bashrc
