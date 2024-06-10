@@ -33,9 +33,6 @@ WORKDIR /root/esp-idf
 
 RUN ./install.sh esp32
 
-# Precomputing saves ~1 second when spawning the shell
-# RUN echo "source /root/esp-idf/export.sh" >> ~/.bashrc
-
 COPY ./env-precompute.sh /tmp/env-precompute.sh
 RUN chmod +x /tmp/env-precompute.sh && \
     /tmp/env-precompute.sh && \
