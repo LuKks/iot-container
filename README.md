@@ -1,22 +1,22 @@
-# esp-container
+# iot-container
 
 Espressif IDF container
 
 ```
-npm i -g esp-container
+npm i -g iot-container
 ```
 
 ## Usage
 
 ```sh
-esp-container [--sudo] [--device <path>] [--persistent]
+iot-container [--sudo] [--device <path>] [--persistent]
 ```
 
 ## Example
 
 ```sh
 # This does cd into current working directory
-esp-container --device /dev/ttyUSB0
+iot-container --device /dev/ttyUSB0
 
 idf.py create-project my_project
 cd my_project
