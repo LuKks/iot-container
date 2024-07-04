@@ -1,7 +1,6 @@
 FROM ubuntu:noble
 
-ARG ESP_IDF_VERSION=5.1.4
-ARG ESP_ARD_VERSION=3.0.1
+ARG ESP_IDF_VERSION=5.2.2
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV IDF_EXPORT_QUIET=true
@@ -19,15 +18,7 @@ WORKDIR /root
 
 RUN git clone -b v${ESP_IDF_VERSION} --depth=1 https://github.com/espressif/esp-idf.git && \
     cd esp-idf && \
-    git submodule update --init --recursive --depth=1 && \
-    rm -rf .git
-
-WORKDIR /root
-
-RUN git clone -b ${ESP_ARD_VERSION} --depth=1 --recursive https://github.com/espressif/arduino-esp32.git && \
-    cd arduino-esp32 && \
-    git submodule update --init --recursive --depth=1 && \
-    rm -rf .git
+    git submodule update --init --recursive --depth=1
 
 WORKDIR /root/esp-idf
 
