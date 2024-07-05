@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/like/iot-container.git"
+    "url": "git+https://github.com/lukks/iot-container.git"
   },
-  "author": "1337",
+  "author": "Lucas Barrena (LuKks)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/like/iot-container/issues"
+    "url": "https://github.com/lukks/iot-container/issues"
   },
-  "homepage": "https://github.com/like/iot-container#readme",
+  "homepage": "https://github.com/lukks/iot-container#readme",
   "devDependencies": {
     "standard": "^17.1.0"
   },
