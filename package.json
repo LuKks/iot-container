@@ -1,6 +1,6 @@
 {
   "name": "iot-container",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Espressif IDF container",
   "files": [
     "bin.js",
