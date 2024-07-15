@@ -4,6 +4,7 @@ ARG ESP_IDF_VERSION=5.2.2
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV IDF_EXPORT_QUIET=true
+ENV IDF_CCACHE_ENABLE=true
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
@@ -11,7 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cmake \
     nano \
     python3.12-venv \
-    libhidapi-libusb0 && \
+    libhidapi-libusb0 \
+    ccache && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
